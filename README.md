@@ -28,7 +28,7 @@ By the end of this course, you will be able to:
 ## Repository Structure & Navigation
 
 This repository contains all learning materials, tutorials, code templates, testing suites, and resources needed for the course.
-
+```
 AI-and-Its-Application-CS205B/
 ├── README.md # This overview and instructions
 ├── syllabus/ # Official syllabus documents and schedule
