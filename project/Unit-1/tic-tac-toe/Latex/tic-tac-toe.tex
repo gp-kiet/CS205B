@@ -1,0 +1,183 @@
+\documentclass{beamer}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{xcolor}
+\usetheme{Madrid}
+\usepackage[most]{tcolorbox}
+
+\title{Experiment-1: Tic-Tac-Toe with Minimax}
+\subtitle{Based on Python Implementation and Documentation}
+\author{Prof. Gaurav Parashar \\
+Department of Computer Science \& Engineering \\
+KIET Group of Institutions, Ghaziabad
+}
+\date{07/08/2025}
+
+% Define Python style for listings
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{backcolor}{rgb}{0.95,0.95,0.95}
+
+\lstdefinestyle{pythonstyle}{
+    language=Python,
+    backgroundcolor=\color{backcolor},
+    commentstyle=\color{gray}\ttfamily,
+    keywordstyle=\color{blue},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{red},
+    basicstyle=\ttfamily\scriptsize,  % Reduced font size
+    breaklines=true,
+    frame=single,
+    numbers=left,
+    numbersep=5pt,
+    showstringspaces=false,
+    tabsize=2
+}
+
+\begin{document}
+
+% Title Slide
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% Overview
+\begin{frame}{Overview}
+  \tableofcontents
+\end{frame}
+
+
+\section{Problem Statement}
+\begin{frame}{Information}
+\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title=Problem Statement]
+Develop an AI to play Tic-Tac-Toe using the Minimax algorithm.
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=yellow!5!white,colframe=yellow!50!black,
+  colbacktitle=yellow!75!black,title=Implementation Details]
+Represent game as 3x3 board, apply recursive minimax logic with pruning.
+\end{tcolorbox}
+\begin{tcolorbox}[colback=red!5!white,colframe=red!50!black,
+  colbacktitle=red!75!black,title=Plan]
+This program is divided into two phases Game Setup with human vs human and human vs AI.
+\end{tcolorbox}
+\end{frame}
+
+\section{Phase-1}
+\begin{frame}
+\centering
+\Huge \textcolor{blue}{PHASE-1}
+\end{frame}
+
+
+
+\subsection{Introduction}
+\begin{frame}{Game Setup}
+\begin{itemize}
+  \item 3x3 Board using NumPy Array
+  \item Player 1 Symbol: \texttt{X}
+  \item Player 2 Symbol: \texttt{O}
+  \item Goal: Place three of the same symbols in a row, column, or diagonal
+\end{itemize}
+\end{frame}
+
+\subsection{Algorithm Steps}
+\begin{frame}{Step 1: Initialization}
+\begin{itemize}
+  \item Create empty 3x3 board with '-' symbols
+  \item Assign symbols: \texttt{p1s = 'X'}, \texttt{p2s = 'O'}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Step 2: Game Loop}
+\begin{itemize}
+  \item Loop for 9 turns (maximum in 3x3 grid)
+  \item Even turn: Player 1 (\texttt{X})
+  \item Odd turn: Player 2 (\texttt{O})
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Step 3: Place Symbol}
+\begin{itemize}
+  \item Prompt player to input row and column (1-3)
+  \item Validate input: in bounds and cell is empty
+  \item Place symbol and display updated board
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Step 4: Check Win}
+\begin{itemize}
+  \item Check if player symbol appears in:
+  \begin{itemize}
+    \item Any row (check\_rows)
+    \item Any column (check\_cols)
+    \item Any diagonal (check\_diagonals)
+  \end{itemize}
+  \item If true, declare the winner and end game
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Step 5: Draw Condition}
+\begin{itemize}
+  \item After 9 turns, if no player has won
+  \item Check both players for win one last time
+  \item If none, declare the result as Draw
+\end{itemize}
+\end{frame}
+
+\subsection{Functions Overview}
+\begin{frame}{Function: place(symbol)}
+\begin{itemize}
+  \item Input row and column from user
+  \item Validate and place symbol
+  \item Print updated board
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Function: check\_rows, check\_cols, check\_diagonals}
+\begin{itemize}
+  \item Each checks if symbol appears three times
+  \item Returns \texttt{True} if win is detected
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Function: won(symbol)}
+\begin{itemize}
+  \item Combines row, column, and diagonal checks
+  \item Used after every move to check win
+\end{itemize}
+\end{frame}
+
+\subsection{Conclusion}
+\begin{frame}{Conclusion}
+\begin{itemize}
+  \item A simple turn-based 2-player game
+  \item Efficient input-validation and win-checking
+  \item Demonstrates control flow, loops, and conditionals
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Thank You}
+  \centering
+  Questions?
+\end{frame}
+
+
+\section{Phase-2}
+\begin{frame}
+\centering
+\Huge \textcolor{blue}{PHASE-2}
+\end{frame}
+
+
+
+% =====================
+% Appendix with Code
+% =====================
+\appendix
+\section{Appendix: Source Code}
+\begin{frame}[allowframebreaks]{Python Code with Documentation}
+\lstinputlisting[style=pythonstyle]{game.py}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,13 @@
+\frametitle{Diagonal Check Function}
+\begin{algorithm}
+\caption{CheckDiagonals(symbol)}
+\begin{algorithmic}[1]
+\If{(top-left to bottom-right diagonal has symbol)}
+    \State Return True
+\ElsIf{(top-right to bottom-left diagonal has symbol)}
+    \State Return True
+\Else
+    \State Return False
+\EndIf
+\end{algorithmic}
+\end{algorithm}
